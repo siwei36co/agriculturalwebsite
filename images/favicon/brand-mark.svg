@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="广西糖业产业链">
+  <!-- White hexagon, with sugarcane stylization inside -->
+  <path fill="#ffffff" d="M256 70 410 158 410 354 256 442 102 354 102 158Z"/>
+
+  <g fill="#198754" opacity="0.98">
+    <rect x="204" y="190" width="18" height="150" rx="9"/>
+    <rect x="247" y="176" width="18" height="178" rx="9"/>
+    <rect x="290" y="190" width="18" height="150" rx="9"/>
+
+    <rect x="196" y="230" width="34" height="10" rx="5"/>
+    <rect x="239" y="220" width="34" height="10" rx="5"/>
+    <rect x="282" y="230" width="34" height="10" rx="5"/>
+
+    <rect x="196" y="292" width="34" height="10" rx="5"/>
+    <rect x="239" y="300" width="34" height="10" rx="5"/>
+    <rect x="282" y="292" width="34" height="10" rx="5"/>
+  </g>
+</svg>
+
