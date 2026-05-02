@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖市行情 - 广西农业现代化发展数据平台</title>
+    <link rel="stylesheet" href="vendor/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <meta name="theme-color" content="#198754">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-mark me-2" src="images/favicon/brand-mark.svg" alt="" aria-hidden="true">广西农业现代化发展数据平台
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="statistics.html">统计分析</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cities.html">地市数据</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="industry.html">糖市行情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="announcement.html">公告</a></li>
+                    <li class="nav-item"><a class="nav-link" href="research.html">研究成果</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="py-5">
+        <div class="container">
+            <h2 class="mb-4">
+                <i class="bi bi-graph-up"></i> 广西糖市行情与产销快报（市场参考价）
+            </h2>
+
+            <div class="alert alert-light border shadow-sm mb-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                    <div class="text-muted small mb-0">
+                        口径：市场参考价（工作日）｜单位：元/吨｜榨季：<span id="seasonLabel">—</span>（起始 <span id="seasonStartLabel">—</span>）
+                        <strong class="text-danger ms-2">提示：来源为多站点汇总，口径可能不一致，仅供参考。</strong>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <label for="monthFilter" class="text-muted small mb-0">筛选月份</label>
+                        <select class="form-select form-select-sm" id="monthFilter" style="width: 140px;">
+                            <option value="">全部</option>
+                        </select>
+                        <button class="btn btn-outline-success btn-sm" id="exportCsvBtn" type="button">
+                            <i class="bi bi-download"></i> 导出CSV
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 今日快报 -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="text-muted small">最新参考价区间</div>
+                            <div class="fs-4 fw-bold" id="latestRange">—</div>
+                            <div class="text-muted small" id="latestDate">—</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="text-muted small">中位数</div>
+                            <div class="fs-4 fw-bold" id="latestMedian">—</div>
+                            <div class="text-muted small">用途：走势展示</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="text-muted small">较上一工作日</div>
+                            <div class="fs-4 fw-bold" id="latestDelta">—</div>
+                            <div class="text-muted small" id="latestSource">—</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 榨季走势 -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-activity"></i> 榨季参考价走势（中位数）</h5>
+                    <small class="opacity-75">数据点为工作日公开报价；中位数 = (最低价 + 最高价) / 2</small>
+                </div>
+                <div class="card-body">
+                    <canvas id="gxSugarPriceChart" height="120"></canvas>
+                </div>
+            </div>
+
+            <!-- 明细表 -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-table"></i> 报价明细</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-success">
+                            <tr>
+                                <th style="width: 140px;">日期</th>
+                                <th>参考价区间（元/吨）</th>
+                                <th style="width: 120px;">中位数</th>
+                                <th style="width: 180px;">来源</th>
+                            </tr>
+                        </thead>
+                        <tbody id="priceTableBody">
+                            <tr>
+                                <td colspan="4" class="text-center py-5">
+                                    <div class="spinner-border text-success" role="status">
+                                        <span class="visually-hidden">加载中...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-body border-top">
+                    <p class="text-muted small mb-0">
+                        <i class="bi bi-info-circle"></i>
+                        说明：本页数据为公开渠道“多站点汇总”的市场参考价信息；同日不同来源/口径可能存在差异，页面展示为公开报道中的区间并附来源链接。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-1">&copy; 2026 广西农业现代化发展数据平台</p>
+            <p class="text-muted mb-0"><small>数据来源：广西壮族自治区统计局、国家统计局、广西农业农村厅等</small></p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/industry.js"></script>
+</body>
+</html>
+
+

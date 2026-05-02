@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究成果 - 广西农业现代化发展数据平台</title>
+    <link rel="stylesheet" href="vendor/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <meta name="theme-color" content="#198754">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-mark me-2" src="images/favicon/brand-mark.svg" alt="" aria-hidden="true">广西农业现代化发展数据平台
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="statistics.html">统计分析</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cities.html">地市数据</a></li>
+                    <li class="nav-item"><a class="nav-link" href="industry.html">糖市行情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="announcement.html">公告</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="research.html">研究成果</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="py-5">
+        <div class="container">
+            <h2 class="mb-4">
+                <i class="bi bi-journal-text"></i> 农业研究成果
+            </h2>
+
+            <!-- 搜索 -->
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <form id="searchForm" class="row g-3">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="searchInput" placeholder="搜索研究成果标题或摘要...">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-search"></i> 搜索
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 研究成果列表 -->
+            <div id="researchList">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">加载中...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center" id="pagination">
+                    <!-- 分页按钮将由JavaScript生成 -->
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- 详情模态框 -->
+    <div class="modal fade" id="researchModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <small class="text-muted">
+                            <i class="bi bi-person"></i> <span id="modalAuthor"></span> |
+                            <i class="bi bi-calendar"></i> <span id="modalDate"></span><span id="modalSource"></span> |
+                            <i class="bi bi-info-circle"></i> 详情
+                        </small>
+                    </div>
+                    <h6 class="text-success">摘要</h6>
+                    <p id="modalAbstract" class="mb-4"></p>
+                    <h6 class="text-success">详细内容</h6>
+                    <div id="modalContent"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-1">&copy; 2026 广西农业现代化发展数据平台</p>
+            <p class="text-muted mb-0"><small>数据来源：广西壮族自治区统计局、国家统计局、广西农业农村厅等</small></p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/research.js"></script>
+</body>
+</html>
+

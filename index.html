@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广西农业现代化发展数据平台</title>
+    <link rel="stylesheet" href="vendor/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <meta name="theme-color" content="#198754">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-mark me-2" src="images/favicon/brand-mark.svg" alt="" aria-hidden="true">广西农业现代化发展数据平台
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="statistics.html">统计分析</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cities.html">地市数据</a></li>
+                    <li class="nav-item"><a class="nav-link" href="industry.html">糖市行情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="announcement.html">公告</a></li>
+                    <li class="nav-item"><a class="nav-link" href="research.html">研究成果</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold text-white mb-4">广西农业现代化发展数据平台</h1>
+                        <p class="lead text-white mb-4">
+                            <span class="hero-typewriter-wrap">
+                                <span class="hero-typewriter-ghost" aria-hidden="true">广西是我国重要的农业大省。本平台围绕粮食、糖料蔗、水果、畜牧、渔业、林业、蚕桑、蔬菜八大产业，构建现代化水平测度指标体系与可视化看板。</span>
+                                <span id="heroTyping" class="hero-typewriter" data-text="广西是我国重要的农业大省。本平台围绕粮食、糖料蔗、水果、畜牧、渔业、林业、蚕桑、蔬菜八大产业，构建现代化水平测度指标体系与可视化看板。">广西是我国重要的农业大省。</span>
+                            </span>
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 hero-actions">
+                            <a href="statistics.html" class="btn btn-light btn-lg hero-action-btn">
+                                <i class="bi bi-bar-chart"></i> 统计分析
+                            </a>
+                            <a href="cities.html" class="btn btn-outline-light btn-lg hero-action-btn">
+                                <i class="bi bi-geo-alt"></i> 地市数据
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pt-4 pb-5">
+            <!-- 轮播 -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4"><i class="bi bi-images"></i> 广西农业风采</h3>
+                </div>
+                <div class="col-12">
+                    <div id="carouselGxSugar" class="carousel slide shadow-lg" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselGxSugar" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carouselGxSugar" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carouselGxSugar" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#carouselGxSugar" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#carouselGxSugar" data-bs-slide-to="4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <picture>
+                                    <source srcset="images/carousel/slide-1.webp" type="image/webp">
+                                    <img src="images/carousel/slide-1.jpg" class="d-block w-100" alt="广西粮食稳产丰收" loading="eager">
+                                </picture>
+                                <div class="carousel-caption carousel-caption-box rounded p-2 p-md-3">
+                                    <h5>粮食稳产丰收</h5>
+                                    <p id="slide1Caption"></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <picture>
+                                    <source srcset="images/carousel/slide-2.webp" type="image/webp">
+                                    <img src="images/carousel/slide-2.jpg" class="d-block w-100" alt="广西糖料蔗与食糖产业" loading="lazy">
+                                </picture>
+                                <div class="carousel-caption carousel-caption-box rounded p-2 p-md-3">
+                                    <h5>糖料蔗与食糖稳居全国首位</h5>
+                                    <p id="slide2Caption"></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <picture>
+                                    <source srcset="images/carousel/slide-3.webp" type="image/webp">
+                                    <img src="images/carousel/slide-3.jpg" class="d-block w-100" alt="广西数字农业与流通升级" loading="lazy">
+                                </picture>
+                                <div class="carousel-caption carousel-caption-box rounded p-2 p-md-3">
+                                    <h5>数字农业与电商加速升级</h5>
+                                    <p id="slide3Caption"></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <picture>
+                                    <source srcset="images/carousel/slide-4.webp" type="image/webp">
+                                    <img src="images/carousel/slide-4.jpg" class="d-block w-100" alt="广西水果产业" loading="lazy">
+                                </picture>
+                                <div class="carousel-caption carousel-caption-box rounded p-2 p-md-3">
+                                    <h5>水果产量持续领跑全国</h5>
+                                    <p id="slide4Caption"></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <picture>
+                                    <source srcset="images/carousel/slide-5.webp" type="image/webp">
+                                    <img src="images/carousel/slide-5.jpg" class="d-block w-100" alt="广西林业产业" loading="lazy">
+                                </picture>
+                                <div class="carousel-caption carousel-caption-box rounded p-2 p-md-3">
+                                    <h5>林草产业率先迈入万亿级</h5>
+                                    <p id="slide5Caption"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGxSugar" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">上一张</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselGxSugar" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">下一张</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心数据卡片 -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3 class="text-center mb-4"><i class="bi bi-graph-up-arrow"></i> 2025年广西农业核心数据</h3>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card stat-primary">
+                        <div class="stat-icon"><i class="bi bi-cash-coin"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statGVA">0</h3>
+                            <p>第一产业增加值(亿元)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card stat-success">
+                        <div class="stat-icon"><i class="bi bi-basket"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statGrain">0</h3>
+                            <p>粮食总产量(万吨)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card stat-info">
+                        <div class="stat-icon"><i class="bi bi-people"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statIncome">0</h3>
+                            <p>农村人均收入(元)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card stat-warning">
+                        <div class="stat-icon"><i class="bi bi-speedometer2"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statGrowth">0</h3>
+                            <p>增速(%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二行：产业亮点 -->
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card" style="background:linear-gradient(135deg,#6f42c1,#9b59b6)">
+                        <div class="stat-icon"><i class="bi bi-flower1"></i></div>
+                        <div class="stat-content">
+                            <h3>646.5<small>万吨</small></h3>
+                            <p>食糖产量(全国第一)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card" style="background:linear-gradient(135deg,#e74c3c,#c0392b)">
+                        <div class="stat-icon"><i class="bi bi-apple"></i></div>
+                        <div class="stat-content">
+                            <h3>4.1<small>%</small></h3>
+                            <p>园林水果同比增长</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card" style="background:linear-gradient(135deg,#3498db,#2980b9)">
+                        <div class="stat-icon"><i class="bi bi-tree-fill"></i></div>
+                        <div class="stat-content">
+                            <h3>1.05<small>万亿</small></h3>
+                            <p>林业产值(全国第一)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 d-flex">
+                    <div class="stat-card" style="background:linear-gradient(135deg,#1abc9c,#16a085)">
+                        <div class="stat-icon"><i class="bi bi-bug"></i></div>
+                        <div class="stat-content">
+                            <h3>48.47<small>万吨</small></h3>
+                            <p>蚕茧产量(全国第一)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 公告 + 研究 -->
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-success text-white">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0"><i class="bi bi-megaphone"></i> 最新公告</h5>
+                                <a href="announcement.html" class="text-white text-decoration-none small">更多 <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body" id="announcementList">
+                            <div class="text-center text-muted py-3">
+                                <div class="spinner-border" role="status"><span class="visually-hidden">加载中...</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-success text-white">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0"><i class="bi bi-journal-text"></i> 最新研究成果</h5>
+                                <a href="research.html" class="text-white text-decoration-none small">更多 <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div id="researchList">
+                                <div class="text-center text-muted py-3">
+                                    <div class="spinner-border" role="status"><span class="visually-hidden">加载中...</span></div>
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-3 border-top d-flex justify-content-end">
+                                <a href="research.html" class="btn btn-sm btn-outline-success">查看全部 <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 八大产业板块 -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h3 class="text-center mb-4"><i class="bi bi-diagram-3"></i> 八大农业产业板块</h3>
+                    <div class="row g-3 sector-cards" id="sectorCards">
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-basket sector-icon"></i><p class="mt-2 mb-0">粮食生产</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-flower1 sector-icon"></i><p class="mt-2 mb-0">糖料蔗</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-apple sector-icon"></i><p class="mt-2 mb-0">水果产业</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-piggy-bank sector-icon"></i><p class="mt-2 mb-0">畜牧业</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-water sector-icon"></i><p class="mt-2 mb-0">渔业</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-tree-fill sector-icon"></i><p class="mt-2 mb-0">林业</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-bug sector-icon"></i><p class="mt-2 mb-0">蚕桑产业</p></div></div>
+                        <div class="col-lg-3 col-md-4 col-6"><div class="sector-card text-center"><i class="bi bi-flower2 sector-icon"></i><p class="mt-2 mb-0">蔬菜</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 全国排名亮点 -->
+            <div class="row mt-5 gx-advantage-cards">
+                <div class="col-12">
+                    <h3 class="text-center mb-4"><i class="bi bi-award"></i> 广西农业全国排名亮点</h3>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 shadow-sm advantage-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-trophy text-success" style="font-size:3rem"></i>
+                            <h5 class="card-title mt-3">13项全国第一</h5>
+                            <p class="card-text">糖料蔗、水果、蚕茧、生丝、林业产值、人造板、木材采伐、近江牡蛎、柑橘、火龙果、百香果、柿子、陆基循环水养殖</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 shadow-sm advantage-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-stars text-success" style="font-size:3rem"></i>
+                            <h5 class="card-title mt-3">4751.54亿元</h5>
+                            <p class="card-text">2024年第一产业增加值，占GDP 16.5%，增速4.3%，农村居民人均可支配收入19954元</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 shadow-sm advantage-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-graph-up text-success" style="font-size:3rem"></i>
+                            <h5 class="card-title mt-3">14个地级市</h5>
+                            <p class="card-text">各具特色：崇左糖都、桂林水果之乡、河池蚕桑之都、柳州螺蛳粉之城、百色芒果之乡</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-1">&copy; 2026 广西农业现代化发展数据平台</p>
+            <p class="text-muted mb-0"><small>数据来源：广西壮族自治区统计局、国家统计局、广西农业农村厅等</small></p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
